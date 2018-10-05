@@ -1,0 +1,12 @@
+<h3>Create your new Todo</h3>
+<%= form_with model: @todo, local: true do |f| %>
+<%= render 'shared/error_message', object: @todo %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br />
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br />
+
+  <%= f.submit "Create" %>
+<% end %>
+<%= link_to "My Todo List", todos_path %>

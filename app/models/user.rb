@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   before_save :normalize_name, on: :create
+  has_many :todos
 
   validates :name, :email, :password, presence: true
   validates :email, uniqueness: { case_sensetive: false }

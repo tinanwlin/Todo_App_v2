@@ -6,8 +6,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:notice] = "Account created!"
+      session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash[:alert] = "Couldn't create account. Please make sure you are using a valid email and password and try again."
       render :new
     end
   end

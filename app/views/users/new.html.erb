@@ -1,5 +1,7 @@
 <h3>Sign Up</h3>
+
 <%= form_with model: @user, local: true do |f| %>
+<%= render 'shared/error_message', object: @user %>
   <%= f.label :name %>
   <%= f.text_field :name %><br />
 
@@ -14,4 +16,4 @@
 
   <%= f.submit "Sign Up" %>
 <% end %>
-<p>Already have account? click here</p>
+<p>Already have account? click here to <%= link_to "Log In", login_path %></p>
